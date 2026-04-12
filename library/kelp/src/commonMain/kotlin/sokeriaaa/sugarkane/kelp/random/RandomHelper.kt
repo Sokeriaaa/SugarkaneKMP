@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sokeriaaa.sugarkane.kelp.helper
+package sokeriaaa.sugarkane.kelp.random
 
 import kotlin.random.Random
 
@@ -21,25 +21,25 @@ object RandomHelper {
     /**
      * Returns `true` with chance of [success]/[base], otherwise `false`.
      */
-    fun chance(success: Int, base: Int = 1, random: Random = Random): Boolean =
+    fun chance(success: Int, base: Int = 1, random: Random = Random.Default): Boolean =
         random.nextInt(base) < success
 
     /**
      * Returns `true` with chance of [success]/[base], otherwise `false`.
      */
-    fun chance(success: Long, base: Long = 1L, random: Random = Random): Boolean =
+    fun chance(success: Long, base: Long = 1L, random: Random = Random.Default): Boolean =
         random.nextLong(base) < success
 
     /**
      * Returns `true` with chance of [success]/[base], otherwise `false`.
      */
-    fun chance(success: Double, base: Double = 1.0, random: Random = Random): Boolean =
+    fun chance(success: Double, base: Double = 1.0, random: Random = Random.Default): Boolean =
         random.nextDouble() * base < success
 
     /**
      * Returns `true` with chance of [success]/[base], otherwise `false`.
      */
-    fun chance(success: Float, base: Float = 1F, random: Random = Random): Boolean =
+    fun chance(success: Float, base: Float = 1F, random: Random = Random.Default): Boolean =
         random.nextFloat() * base < success
 
     /**
@@ -48,7 +48,7 @@ object RandomHelper {
     inline fun withChance(
         success: Int,
         base: Int = 1,
-        random: Random = Random,
+        random: Random = Random.Default,
         ifSuccess: () -> Unit
     ) {
         if (chance(success = success, base = base, random = random)) {
@@ -62,7 +62,7 @@ object RandomHelper {
     inline fun withChance(
         success: Long,
         base: Long = 1L,
-        random: Random = Random,
+        random: Random = Random.Default,
         ifSuccess: () -> Unit
     ) {
         if (chance(success = success, base = base, random = random)) {
@@ -76,7 +76,7 @@ object RandomHelper {
     inline fun withChance(
         success: Double,
         base: Double = 1.0,
-        random: Random = Random,
+        random: Random = Random.Default,
         ifSuccess: () -> Unit
     ) {
         if (chance(success = success, base = base, random = random)) {

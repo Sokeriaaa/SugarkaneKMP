@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sokeriaaa.sugarkane.kelp.test.helper
+package sokeriaaa.sugarkane.kelp.test.time
 
-import sokeriaaa.sugarkane.kelp.helper.TimeHelper
+import sokeriaaa.sugarkane.kelp.time.TimeHelper
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

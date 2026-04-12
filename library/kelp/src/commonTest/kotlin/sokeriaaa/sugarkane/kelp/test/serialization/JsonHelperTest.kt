@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sokeriaaa.sugarkane.kelp.test.helper
+package sokeriaaa.sugarkane.kelp.test.serialization
 
-import sokeriaaa.sugarkane.kelp.helper.JsonHelper
-import sokeriaaa.sugarkane.kelp.helper.JsonHelper.toJsonString
+import sokeriaaa.sugarkane.kelp.serialization.JsonHelper
+import sokeriaaa.sugarkane.kelp.serialization.JsonHelper.toJsonString
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

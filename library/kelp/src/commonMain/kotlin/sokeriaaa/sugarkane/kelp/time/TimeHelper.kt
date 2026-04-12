@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sokeriaaa.sugarkane.kelp.helper
+package sokeriaaa.sugarkane.kelp.time
 
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
