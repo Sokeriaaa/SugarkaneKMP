@@ -147,7 +147,7 @@ class AdaptiveScaffoldState internal constructor(
 }
 
 @Composable
-fun rememberAAdaptiveScaffoldState(
+fun rememberAdaptiveScaffoldState(
     windowAdaptiveInfo: WindowAdaptiveInfo,
 ) = remember {
     // Is wide screen
