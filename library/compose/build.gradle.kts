@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "io.github.sokeriaaa"
-version = "0.1.0-SNAPSHOT"
+version = project.findProperty("sugarkane.kmp.version") as String
 
 mavenPublishing {
     coordinates(
