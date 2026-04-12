@@ -35,5 +35,6 @@ plugins {
 }
 
 include(":library:compose")
+include(":library:kelp")
 include(":sample:androidApp")
 include(":sample:composeApp")

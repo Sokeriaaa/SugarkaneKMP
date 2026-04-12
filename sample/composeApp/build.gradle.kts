@@ -57,6 +57,7 @@ kotlin {
         }
         commonMain.dependencies {
             implementation(projects.library.compose)
+            implementation(projects.library.kelp)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.compose.components.resources)
