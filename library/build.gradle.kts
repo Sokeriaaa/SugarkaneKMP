@@ -16,7 +16,7 @@ kotlin {
         withHostTest {
             isIncludeAndroidResources = true
         }
-        namespace = "sokeriaaa.sugarkane.compose.sample.composeapp"
+        namespace = "sokeriaaa.sugarkane.compose"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
 
         compilerOptions {
@@ -28,11 +28,12 @@ kotlin {
     }
     
     listOf(
+        iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "SugarkaneCompose"
             isStatic = true
         }
     }
@@ -56,7 +57,6 @@ kotlin {
             implementation(libs.compose.ui.tooling.preview)
         }
         commonMain.dependencies {
-            implementation(projects.library)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.compose.components.resources)
@@ -78,16 +78,4 @@ kotlin {
 
 dependencies {
     androidRuntimeClasspath(libs.compose.ui.tooling)
-}
-
-compose.desktop {
-    application {
-        mainClass = "sokeriaaa.sugarkane.compose.MainKt"
-
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "sokeriaaa.sugarkane.compose"
-            packageVersion = "1.0.0"
-        }
-    }
 }
