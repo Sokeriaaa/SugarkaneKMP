@@ -1,4 +1,4 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -8,6 +8,54 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
     alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.mavenPublish)
+}
+
+group = "io.github.sokeriaaa"
+version = "0.1.0"
+
+mavenPublishing {
+    coordinates(
+        groupId = group.toString(),
+        artifactId = "sugarkane.compose",
+        version = version.toString(),
+    )
+
+    pom {
+        name = "Sugarkane Compose"
+        description = "Shared Compose Multiplatform widgets and logic."
+        inceptionYear = "2026"
+        url = "https://github.com/Sokeriaaa/SugarkaneKMP"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "http://apache.org"
+            }
+        }
+        developers {
+            developer {
+                id = "Sokeriaaa"
+                name = "Sokeriaaa"
+            }
+        }
+        scm {
+            url = "https://github.com"
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://github.com")
+            credentials {
+                val localProperties = gradleLocalProperties(rootDir, providers)
+                username = localProperties.getProperty("github.packages.username")
+                password = localProperties.getProperty("github.packages.password")
+            }
+        }
+    }
 }
 
 kotlin {
