@@ -129,3 +129,8 @@ kotlin {
 dependencies {
     androidRuntimeClasspath(libs.compose.ui.tooling)
 }
+
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "sokeriaaa.sugarkane.compose.res"
+}
