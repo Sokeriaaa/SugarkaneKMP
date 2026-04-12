@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sokeriaaa.sugarkane.compose.ui.base
+package sokeriaaa.sugarkane.compose.ui.scaffold
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -33,7 +33,7 @@ import sokeriaaa.sugarkane.compose.mvi.BaseViewModel
  * Base Scaffold with [BaseViewModel].
  */
 @Composable
-fun <VM : BaseViewModel> BaseScaffold(
+fun <VM : BaseViewModel> AppScaffold(
     modifier: Modifier = Modifier,
     viewModel: VM,
     topBar: @Composable () -> Unit = {},
