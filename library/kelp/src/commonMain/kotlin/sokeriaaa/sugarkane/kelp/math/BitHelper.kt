@@ -1,0 +1,32 @@
+/**
+ * Copyright (C) 2026 Sokeriaaa
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package sokeriaaa.sugarkane.kelp.math
+
+object BitHelper {
+    /**
+     * Get the binary value of the specified bit.
+     *
+     * @return `true` for 1 and `false` for 0.
+     */
+    fun Int.bitToBoolean(bit: Int) = this.shr(bit).and(1) == 1
+
+    /**
+     * Get the binary value of the specified bit.
+     *
+     * @return `true` for 1 and `false` for 0.
+     */
+    fun Long.bitToBoolean(bit: Int) = this.shr(bit).and(1L) == 1L
+}
