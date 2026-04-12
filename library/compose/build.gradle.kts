@@ -1,4 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -50,9 +49,12 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/Sokeriaaa/SugarkaneKMP")
             credentials {
-                val localProperties = gradleLocalProperties(rootDir, providers)
-                username = localProperties.getProperty("github.packages.username")
-                password = localProperties.getProperty("github.packages.password")
+                credentials {
+                    username = project.findProperty("github.packages.username") as String?
+                        ?: System.getenv("GITHUB_ACTOR")
+                    password = project.findProperty("github.packages.password") as String?
+                        ?: System.getenv("GITHUB_TOKEN")
+                }
             }
         }
     }
