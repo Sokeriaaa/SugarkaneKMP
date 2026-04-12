@@ -12,12 +12,12 @@ plugins {
 }
 
 group = "io.github.sokeriaaa"
-version = "0.1.0"
+version = "0.1.0-SNAPSHOT"
 
 mavenPublishing {
     coordinates(
         groupId = group.toString(),
-        artifactId = "sugarkane.compose",
+        artifactId = "sugarkane-compose",
         version = version.toString(),
     )
 
@@ -48,7 +48,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://github.com")
+            url = uri("https://maven.pkg.github.com/Sokeriaaa/SugarkaneKMP")
             credentials {
                 val localProperties = gradleLocalProperties(rootDir, providers)
                 username = localProperties.getProperty("github.packages.username")
