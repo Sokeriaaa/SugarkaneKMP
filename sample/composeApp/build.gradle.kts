@@ -69,6 +69,7 @@ kotlin {
             implementation(libs.compose.ui.tooling.preview)
         }
         commonTest.dependencies {
+            implementation(projects.library.wrench)
             implementation(libs.kotlin.test)
         }
         jvmMain.dependencies {

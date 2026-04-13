@@ -14,13 +14,13 @@ version = project.findProperty("sugarkane.kmp.version") as String
 mavenPublishing {
     coordinates(
         groupId = group.toString(),
-        artifactId = "sugarkane-kelp",
+        artifactId = "sugarkane-wrench",
         version = version.toString(),
     )
 
     pom {
-        name = "Sugarkane Kelp"
-        description = "Shared Kotlin Multiplatform common code."
+        name = "Sugarkane Wrench"
+        description = "Testing helpers for Kotlin Multiplatform."
         inceptionYear = "2026"
         url = "https://github.com/Sokeriaaa/SugarkaneKMP"
         licenses {
@@ -64,7 +64,7 @@ kotlin {
         withHostTest {
             isIncludeAndroidResources = true
         }
-        namespace = "sokeriaaa.sugarkane.kelp"
+        namespace = "sokeriaaa.sugarkane.wrench"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
 
         compilerOptions {
@@ -81,7 +81,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "SugarkaneKelp"
+            baseName = "SugarkaneWrench"
             isStatic = true
         }
     }
@@ -101,12 +101,6 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.kotlinx.datetime)
-            implementation(libs.kotlinx.serialization.json)
-        }
-        commonTest.dependencies {
-            implementation(projects.library.wrench)
             implementation(libs.kotlin.test)
         }
         jvmMain.dependencies {

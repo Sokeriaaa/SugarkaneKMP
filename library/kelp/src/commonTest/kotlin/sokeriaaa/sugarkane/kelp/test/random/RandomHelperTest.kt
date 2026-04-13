@@ -16,6 +16,7 @@
 package sokeriaaa.sugarkane.kelp.test.random
 
 import sokeriaaa.sugarkane.kelp.random.RandomHelper
+import sokeriaaa.sugarkane.wrench.random.FakeRandom
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue

@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sokeriaaa.sugarkane.kelp.test
+package sokeriaaa.sugarkane.wrench.helper
 
 import kotlin.test.assertEquals
 
-object TestingHelper {
+object AssertHelper {
     fun assertDoubleEquals(expected: Double, actual: Double, absoluteTolerance: Double = 1e-5) {
         assertEquals(expected, actual, absoluteTolerance)
     }
