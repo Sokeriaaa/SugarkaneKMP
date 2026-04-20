@@ -41,7 +41,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.stringResource
-import sokeriaaa.sugarkane.compose.res.Res
+import sokeriaaa.sugarkane.compose.res.SKRes
 import sokeriaaa.sugarkane.compose.res.decrease
 import sokeriaaa.sugarkane.compose.res.ic_outline_add_circle_24
 import sokeriaaa.sugarkane.compose.res.ic_outline_do_not_disturb_on_24
@@ -94,8 +94,8 @@ fun AppAmountSelectorContent(
     }
     // -
     AppIconButton(
-        iconRes = Res.drawable.ic_outline_do_not_disturb_on_24,
-        contentDescription = stringResource(Res.string.decrease),
+        iconRes = SKRes.drawable.ic_outline_do_not_disturb_on_24,
+        contentDescription = stringResource(SKRes.string.decrease),
         colors = IconButtonDefaults.iconButtonColors(contentColor = color),
         enabled = amount > minimum,
         onClick = {
@@ -129,8 +129,8 @@ fun AppAmountSelectorContent(
     )
     // +
     AppIconButton(
-        iconRes = Res.drawable.ic_outline_add_circle_24,
-        contentDescription = stringResource(Res.string.increase),
+        iconRes = SKRes.drawable.ic_outline_add_circle_24,
+        contentDescription = stringResource(SKRes.string.increase),
         colors = IconButtonDefaults.iconButtonColors(contentColor = color),
         enabled = amount < maximum,
         onClick = {

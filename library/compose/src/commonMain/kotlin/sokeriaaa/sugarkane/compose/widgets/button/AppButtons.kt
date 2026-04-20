@@ -41,7 +41,7 @@ import androidx.compose.ui.graphics.Shape
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import sokeriaaa.sugarkane.compose.res.Res
+import sokeriaaa.sugarkane.compose.res.SKRes
 import sokeriaaa.sugarkane.compose.res.back
 
 /**
@@ -320,7 +320,7 @@ fun AppBackIconButton(
     modifier = modifier,
     iconRes = backIconRes,
     onClick = onClick,
-    contentDescription = stringResource(Res.string.back),
+    contentDescription = stringResource(SKRes.string.back),
     enabled = enabled,
     colors = colors,
     interactionSource = interactionSource,

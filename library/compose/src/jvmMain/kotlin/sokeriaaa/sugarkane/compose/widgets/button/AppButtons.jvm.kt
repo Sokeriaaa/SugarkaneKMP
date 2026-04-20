@@ -16,7 +16,7 @@
 package sokeriaaa.sugarkane.compose.widgets.button
 
 import org.jetbrains.compose.resources.DrawableResource
-import sokeriaaa.sugarkane.compose.res.Res
+import sokeriaaa.sugarkane.compose.res.SKRes
 import sokeriaaa.sugarkane.compose.res.ic_outline_arrow_back_24
 
-internal actual val backIconRes: DrawableResource = Res.drawable.ic_outline_arrow_back_24
+internal actual val backIconRes: DrawableResource = SKRes.drawable.ic_outline_arrow_back_24

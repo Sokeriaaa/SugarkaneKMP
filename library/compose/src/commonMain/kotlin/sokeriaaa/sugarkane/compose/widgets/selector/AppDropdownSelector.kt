@@ -34,7 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import org.jetbrains.compose.resources.painterResource
-import sokeriaaa.sugarkane.compose.res.Res
+import sokeriaaa.sugarkane.compose.res.SKRes
 import sokeriaaa.sugarkane.compose.res.ic_outline_arrow_drop_down_24
 
 /**
@@ -165,7 +165,7 @@ private fun DropdownTrailingIcon(expanded: Boolean) {
     )
     Icon(
         modifier = Modifier.rotate(animatedRotate),
-        painter = painterResource(Res.drawable.ic_outline_arrow_drop_down_24),
+        painter = painterResource(SKRes.drawable.ic_outline_arrow_drop_down_24),
         contentDescription = null,
     )
 }

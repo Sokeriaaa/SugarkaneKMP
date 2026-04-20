@@ -23,7 +23,7 @@ import androidx.compose.ui.Modifier
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import sokeriaaa.sugarkane.compose.res.Res
+import sokeriaaa.sugarkane.compose.res.SKRes
 import sokeriaaa.sugarkane.compose.res.cancel
 import sokeriaaa.sugarkane.compose.res.ok
 import sokeriaaa.sugarkane.compose.widgets.button.AppTextButton
@@ -38,8 +38,8 @@ fun AppAlertDialog(
     iconContentDescription: String? = null,
     title: String? = null,
     text: String? = null,
-    confirmText: String = stringResource(Res.string.ok),
-    cancelText: String? = stringResource(Res.string.cancel),
+    confirmText: String = stringResource(SKRes.string.ok),
+    cancelText: String? = stringResource(SKRes.string.cancel),
     onDismiss: () -> Unit,
     onConfirmed: () -> Unit = onDismiss,
     onCanceled: () -> Unit = onDismiss,
@@ -66,8 +66,8 @@ fun AppAlertDialog(
     iconContentDescription: String? = null,
     title: String? = null,
     content: (@Composable () -> Unit)?,
-    confirmText: String = stringResource(Res.string.ok),
-    cancelText: String? = stringResource(Res.string.cancel),
+    confirmText: String = stringResource(SKRes.string.ok),
+    cancelText: String? = stringResource(SKRes.string.cancel),
     onDismiss: () -> Unit,
     onConfirmed: () -> Unit = onDismiss,
     onCanceled: () -> Unit = onDismiss,

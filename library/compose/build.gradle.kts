@@ -134,4 +134,5 @@ dependencies {
 compose.resources {
     publicResClass = true
     packageOfResClass = "sokeriaaa.sugarkane.compose.res"
+    nameOfResClass = "SKRes"
 }
