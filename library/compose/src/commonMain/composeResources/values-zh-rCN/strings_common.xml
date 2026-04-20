@@ -6,4 +6,8 @@
 
     <string name="increase">增加</string>
     <string name="decrease">减少</string>
+
+    <plurals name="notification_count">
+        <item quantity="other">%1$s条新通知。</item>
+    </plurals>
 </resources>

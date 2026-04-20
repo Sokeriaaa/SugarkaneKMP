@@ -6,4 +6,9 @@
 
     <string name="increase">Increase</string>
     <string name="decrease">Decrease</string>
+
+    <plurals name="notification_count">
+        <item quantity="one">%1$s new notification</item>
+        <item quantity="other">%1$s new notifications.</item>
+    </plurals>
 </resources>
