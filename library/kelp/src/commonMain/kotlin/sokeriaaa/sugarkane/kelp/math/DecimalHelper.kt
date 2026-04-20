@@ -15,7 +15,9 @@
  */
 package sokeriaaa.sugarkane.kelp.math
 
+import kotlin.math.absoluteValue
 import kotlin.math.pow
+import kotlin.math.round
 
 /**
  * Helper functions for working with decimals.
@@ -24,17 +26,25 @@ object DecimalHelper {
 
     /**
      * Convert a [Float] to a string with the given number of decimal places.
+     * (Round to the nearest integer)
      *
      * @param precision The number of decimal places to include.
      */
     fun Float.toPrecision(precision: Int): String {
+        val factor = 10.0.pow(precision).toFloat()
+        val rounded = round(this * factor) / factor
+
         if (precision <= 0) {
-            return this.toInt().toString()
+            return rounded.toInt().toString()
         }
-        val integerDigits = this.toInt()
-        val digits = 10f.pow(precision).toInt()
-        val floatDigits = (this * digits).toInt() % digits
-        return "$integerDigits.${floatDigits.toString().padStart(precision, padChar = '0')}"
+
+        val integerPart = rounded.toInt()
+        val fractionalPart = ((rounded * factor).toInt() % factor.toInt())
+            .absoluteValue
+            .toString()
+            .padStart(precision, padChar = '0')
+
+        return "$integerPart.$fractionalPart"
     }
 
     /**

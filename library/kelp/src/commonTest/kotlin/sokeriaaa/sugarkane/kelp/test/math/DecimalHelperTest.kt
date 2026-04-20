@@ -23,20 +23,20 @@ class DecimalHelperTest {
 
     @Test
     fun `Float toPrecision should format correctly`() {
-        assertEquals("12.34", 12.3456f.toPrecision(2))
+        assertEquals("12.35", 12.3456f.toPrecision(2))
         assertEquals("12.30", 12.3f.toPrecision(2))
-        assertEquals("0.007", 0.0078f.toPrecision(3))
+        assertEquals("0.008", 0.0078f.toPrecision(3))
     }
 
     @Test
     fun `Double toPrecision should delegate to float implementation`() {
-        assertEquals("123.456", 123.456789.toPrecision(3))
+        assertEquals("123.457", 123.456789.toPrecision(3))
     }
 
     @Test
     fun `toPrecision with zero or negative precision should return integer string`() {
-        assertEquals("12", 12.78f.toPrecision(0))
-        assertEquals("12", 12.78f.toPrecision(-1))
+        assertEquals("13", 12.78f.toPrecision(0))
+        assertEquals("10", 12.78f.toPrecision(-1))
     }
 
     @Test
