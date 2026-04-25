@@ -35,6 +35,7 @@ import sokeriaaa.sugarkane.compose.res.notification_count
 fun AppBadgedBox(
     modifier: Modifier = Modifier,
     badgeNumber: Int,
+    badgeLabel: (Int) -> String = { if (it > 99) "99+" else it.toString() },
     content: @Composable BoxScope.() -> Unit,
 ) {
     val animatedBadgeNumber by animateIntAsState(
@@ -60,11 +61,7 @@ fun AppBadgedBox(
                     modifier = Modifier.semantics {
                         contentDescription = badgeContentDescription
                     },
-                    text = if (animatedBadgeNumber > 99) {
-                        "99+"
-                    } else {
-                        animatedBadgeNumber.toString()
-                    },
+                    text = badgeLabel(animatedBadgeNumber),
                 )
             }
         },
