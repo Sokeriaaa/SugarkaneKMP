@@ -21,6 +21,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.AnnotatedString
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import sokeriaaa.sugarkane.compose.widgets.button.AppBackIconButton
@@ -29,6 +30,18 @@ import sokeriaaa.sugarkane.compose.widgets.button.AppBackIconButton
 @Composable
 fun SimpleTopAppBar(
     title: String,
+    actions: @Composable (RowScope.() -> Unit) = {},
+    onBack: () -> Unit,
+) = TopAppBar(
+    title = { Text(text = title) },
+    navigationIcon = { AppBackIconButton(onClick = onBack) },
+    actions = actions,
+)
+
+@ExperimentalMaterial3Api
+@Composable
+fun SimpleTopAppBar(
+    title: AnnotatedString,
     actions: @Composable (RowScope.() -> Unit) = {},
     onBack: () -> Unit,
 ) = TopAppBar(
@@ -53,6 +66,18 @@ fun SimpleTopAppBar(
 @Composable
 fun SimpleCenterAlignedTopAppBar(
     title: String,
+    actions: @Composable (RowScope.() -> Unit) = {},
+    onBack: () -> Unit,
+) = CenterAlignedTopAppBar(
+    title = { Text(text = title) },
+    navigationIcon = { AppBackIconButton(onClick = onBack) },
+    actions = actions,
+)
+
+@ExperimentalMaterial3Api
+@Composable
+fun SimpleCenterAlignedTopAppBar(
+    title: AnnotatedString,
     actions: @Composable (RowScope.() -> Unit) = {},
     onBack: () -> Unit,
 ) = CenterAlignedTopAppBar(
