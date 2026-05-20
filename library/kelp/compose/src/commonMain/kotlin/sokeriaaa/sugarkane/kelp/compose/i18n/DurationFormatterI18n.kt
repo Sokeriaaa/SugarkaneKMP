@@ -30,28 +30,18 @@ import sokeriaaa.sugarkane.kelp.compose.res.duration_unit_seconds_short
 import sokeriaaa.sugarkane.kelp.compose.res.duration_unit_spacer
 import sokeriaaa.sugarkane.kelp.time.TimeHelper
 import sokeriaaa.sugarkane.kelp.time.format.DurationFormatter
-import kotlin.time.DurationUnit
 
 @Suppress("ComposableNaming")
 @Composable
-fun DurationFormatter.Companion.I18n(
-    maxUnit: DurationUnit = DurationUnit.DAYS,
-    maxItems: Int = 2,
-    includeZeroes: Boolean = false,
-) = DurationFormatter(
-    maxUnit = maxUnit,
-    maxItems = maxItems,
-    includeZeroes = includeZeroes,
-    symbols = DurationFormatter.Symbols(
-        days = stringResource(SKCRes.string.duration_unit_days_short),
-        hours = stringResource(SKCRes.string.duration_unit_hours_short),
-        minutes = stringResource(SKCRes.string.duration_unit_minutes_short),
-        seconds = stringResource(SKCRes.string.duration_unit_seconds_short),
-        millis = stringResource(SKCRes.string.duration_unit_milliseconds_short),
-        micros = stringResource(SKCRes.string.duration_unit_microseconds_short),
-        nanos = stringResource(SKCRes.string.duration_unit_nanoseconds_short),
-        spacer = stringResource(SKCRes.string.duration_unit_spacer),
-    )
+fun DurationFormatter.Companion.I18nSymbols() = DurationFormatter.Symbols(
+    days = stringResource(SKCRes.string.duration_unit_days_short),
+    hours = stringResource(SKCRes.string.duration_unit_hours_short),
+    minutes = stringResource(SKCRes.string.duration_unit_minutes_short),
+    seconds = stringResource(SKCRes.string.duration_unit_seconds_short),
+    millis = stringResource(SKCRes.string.duration_unit_milliseconds_short),
+    micros = stringResource(SKCRes.string.duration_unit_microseconds_short),
+    nanos = stringResource(SKCRes.string.duration_unit_nanoseconds_short),
+    spacer = stringResource(SKCRes.string.duration_unit_spacer),
 )
 
 // ==========================================
@@ -60,17 +50,26 @@ fun DurationFormatter.Companion.I18n(
 @Preview
 @Composable
 private fun DurationFormatterI18nPreview1() {
-    Text(DurationFormatter.I18n().format(millis = TimeHelper.ONE_DAY + TimeHelper.ONE_HOUR))
+    Text(
+        DurationFormatter(symbols = DurationFormatter.I18nSymbols())
+            .format(millis = TimeHelper.ONE_DAY + TimeHelper.ONE_HOUR)
+    )
 }
 
 @Preview
 @Composable
 private fun DurationFormatterI18nPreview2() {
-    Text(DurationFormatter.I18n().format(millis = TimeHelper.ONE_DAY))
+    Text(
+        DurationFormatter(symbols = DurationFormatter.I18nSymbols())
+            .format(millis = TimeHelper.ONE_DAY)
+    )
 }
 
 @Preview
 @Composable
 private fun DurationFormatterI18nPreview3() {
-    Text(DurationFormatter.I18n(includeZeroes = true).format(millis = TimeHelper.ONE_DAY))
+    Text(
+        DurationFormatter(includeZeroes = true, symbols = DurationFormatter.I18nSymbols())
+            .format(millis = TimeHelper.ONE_DAY)
+    )
 }
