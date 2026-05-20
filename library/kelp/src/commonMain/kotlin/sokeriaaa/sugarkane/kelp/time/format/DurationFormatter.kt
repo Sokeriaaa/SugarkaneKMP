@@ -127,4 +127,6 @@ data class DurationFormatter(
         DurationUnit.DAYS -> 86_400_000_000_000L
         else -> 0L
     }
+
+    companion object
 }

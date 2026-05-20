@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="duration_unit_days">
+        <item quantity="one">day</item>
+        <item quantity="other">days</item>
+    </plurals>
+    <plurals name="duration_unit_hours">
+        <item quantity="one">hour</item>
+        <item quantity="other">hours</item>
+    </plurals>
+    <plurals name="duration_unit_minutes">
+        <item quantity="one">minute</item>
+        <item quantity="other">minutes</item>
+    </plurals>
+    <plurals name="duration_unit_seconds">
+        <item quantity="one">second</item>
+        <item quantity="other">seconds</item>
+    </plurals>
+    <plurals name="duration_unit_milliseconds">
+        <item quantity="one">millisecond</item>
+        <item quantity="other">milliseconds</item>
+    </plurals>
+    <plurals name="duration_unit_microseconds">
+        <item quantity="one">microsecond</item>
+        <item quantity="other">microseconds</item>
+    </plurals>
+    <plurals name="duration_unit_nanoseconds">
+        <item quantity="one">nanosecond</item>
+        <item quantity="other">nanoseconds</item>
+    </plurals>
+
+    <string name="duration_unit_days_short">d</string>
+    <string name="duration_unit_hours_short">h</string>
+    <string name="duration_unit_minutes_short">m</string>
+    <string name="duration_unit_seconds_short">s</string>
+    <string name="duration_unit_milliseconds_short">ms</string>
+    <string name="duration_unit_microseconds_short">us</string>
+    <string name="duration_unit_nanoseconds_short">ns</string>
+    <string name="duration_unit_spacer"> </string>
+</resources>

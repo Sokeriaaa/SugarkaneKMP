@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -8,6 +7,57 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
     alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.mavenPublish)
+}
+
+group = "io.github.sokeriaaa"
+version = project.findProperty("sugarkane.kmp.version") as String
+
+mavenPublishing {
+    coordinates(
+        groupId = group.toString(),
+        artifactId = "sugarkane-kelp-compose",
+        version = version.toString(),
+    )
+
+    pom {
+        name = "Sugarkane Kelp Compose"
+        description = "Compose Multiplatform extension for Sugarkane Kelp."
+        inceptionYear = "2026"
+        url = "https://github.com/Sokeriaaa/SugarkaneKMP"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "http://apache.org"
+            }
+        }
+        developers {
+            developer {
+                id = "Sokeriaaa"
+                name = "Sokeriaaa"
+            }
+        }
+        scm {
+            url = "https://github.com"
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Sokeriaaa/SugarkaneKMP")
+            credentials {
+                credentials {
+                    username = project.findProperty("github.packages.username") as String?
+                        ?: System.getenv("GITHUB_ACTOR")
+                    password = project.findProperty("github.packages.password") as String?
+                        ?: System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
+    }
 }
 
 kotlin {
@@ -16,7 +66,7 @@ kotlin {
         withHostTest {
             isIncludeAndroidResources = true
         }
-        namespace = "sokeriaaa.sugarkane.compose.sample.composeapp"
+        namespace = "sokeriaaa.sugarkane.kelp.compose"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
 
         compilerOptions {
@@ -26,39 +76,37 @@ kotlin {
             enable = true
         }
     }
-    
+
     listOf(
         iosArm64(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "SugarkaneKelpCompose"
             isStatic = true
         }
     }
-    
+
     jvm()
-    
+
     js {
         browser()
         binaries.executable()
     }
-    
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser()
         binaries.executable()
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(libs.androidx.activity.compose)
             implementation(libs.compose.ui.tooling.preview)
         }
         commonMain.dependencies {
-            implementation(projects.library.compose)
             implementation(projects.library.kelp)
-            implementation(projects.library.kelp.compose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.compose.components.resources)
@@ -70,7 +118,6 @@ kotlin {
             implementation(libs.compose.ui.tooling.preview)
         }
         commonTest.dependencies {
-            implementation(projects.library.wrench)
             implementation(libs.kotlin.test)
         }
         jvmMain.dependencies {
@@ -84,14 +131,8 @@ dependencies {
     androidRuntimeClasspath(libs.compose.ui.tooling)
 }
 
-compose.desktop {
-    application {
-        mainClass = "sokeriaaa.sugarkane.compose.MainKt"
-
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "sokeriaaa.sugarkane.compose"
-            packageVersion = "1.0.0"
-        }
-    }
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "sokeriaaa.sugarkane.kelp.compose.res"
+    nameOfResClass = "SKCRes"
 }

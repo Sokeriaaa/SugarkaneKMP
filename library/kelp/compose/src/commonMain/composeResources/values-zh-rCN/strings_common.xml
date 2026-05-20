@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="duration_unit_days">
+        <item quantity="other">天</item>
+    </plurals>
+    <plurals name="duration_unit_hours">
+        <item quantity="other">小时</item>
+    </plurals>
+    <plurals name="duration_unit_minutes">
+        <item quantity="other">分钟</item>
+    </plurals>
+    <plurals name="duration_unit_seconds">
+        <item quantity="other">秒</item>
+    </plurals>
+    <plurals name="duration_unit_milliseconds">
+        <item quantity="other">毫秒</item>
+    </plurals>
+    <plurals name="duration_unit_microseconds">
+        <item quantity="other">微秒</item>
+    </plurals>
+    <plurals name="duration_unit_nanoseconds">
+        <item quantity="other">纳秒</item>
+    </plurals>
+
+    <string name="duration_unit_days_short">天</string>
+    <string name="duration_unit_hours_short">时</string>
+    <string name="duration_unit_minutes_short">分</string>
+    <string name="duration_unit_seconds_short">秒</string>
+    <string name="duration_unit_milliseconds_short">毫秒</string>
+    <string name="duration_unit_microseconds_short">微秒</string>
+    <string name="duration_unit_nanoseconds_short">纳秒</string>
+    <string name="duration_unit_spacer" />
+</resources>

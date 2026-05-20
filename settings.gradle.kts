@@ -36,6 +36,7 @@ plugins {
 
 include(":library:compose")
 include(":library:kelp")
+include(":library:kelp:compose")
 include(":library:wrench")
 include(":sample:androidApp")
 include(":sample:composeApp")
