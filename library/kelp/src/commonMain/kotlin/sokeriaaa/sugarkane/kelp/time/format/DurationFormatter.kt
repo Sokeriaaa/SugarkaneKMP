@@ -21,6 +21,11 @@ import kotlin.time.DurationUnit
 
 /**
  * Duration formatter with customizable unit symbols.
+ *
+ * @param maxUnit The max unit for displaying.
+ * @param maxItems The max item count for the units. Units with a zero value also occupy a slot.
+ * @param includeZeroes Display items with a zero value or not.
+ * @param symbols Symbols used for displaying units.
  */
 data class DurationFormatter(
     val maxUnit: DurationUnit = DurationUnit.DAYS,
@@ -31,16 +36,16 @@ data class DurationFormatter(
     /**
      * Unit symbols for different duration units.
      */
-    data class Symbols(
-        val days: String = "d",
-        val hours: String = "h",
-        val minutes: String = "m",
-        val seconds: String = "s",
-        val millis: String = "ms",
-        val micros: String = "us",
-        val nanos: String = "ns",
-        val spacer: String = " ",
-    ) {
+    interface Symbols {
+        val days: String
+        val hours: String
+        val minutes: String
+        val seconds: String
+        val millis: String
+        val micros: String
+        val nanos: String
+        val spacer: String
+
         operator fun get(unit: DurationUnit): String = when (unit) {
             DurationUnit.DAYS -> days
             DurationUnit.HOURS -> hours
@@ -53,9 +58,40 @@ data class DurationFormatter(
         }
 
         companion object {
+            operator fun invoke(
+                days: String = "d",
+                hours: String = "h",
+                minutes: String = "m",
+                seconds: String = "s",
+                millis: String = "ms",
+                micros: String = "us",
+                nanos: String = "ns",
+                spacer: String = " ",
+            ): Symbols = SimpleSymbols(
+                days = days,
+                hours = hours,
+                minutes = minutes,
+                seconds = seconds,
+                millis = millis,
+                micros = micros,
+                nanos = nanos,
+                spacer = spacer,
+            )
+
             val Default = Symbols()
         }
     }
+
+    private data class SimpleSymbols(
+        override val days: String,
+        override val hours: String,
+        override val minutes: String,
+        override val seconds: String,
+        override val millis: String,
+        override val micros: String,
+        override val nanos: String,
+        override val spacer: String,
+    ) : Symbols
 
     init {
         require(maxItems > 0) {
